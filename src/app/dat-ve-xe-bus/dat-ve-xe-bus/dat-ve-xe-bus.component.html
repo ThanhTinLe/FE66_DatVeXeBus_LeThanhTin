@@ -1,0 +1,27 @@
+<div class="container w-50" id="dat__ve__xe__bus">
+    <h1 class="text-center">ĐẶT VÉ XE BUS HÃNG CYBERSOFT</h1>
+    <div class="row">
+        <div class="col-6" id="chon__ghe">
+            <a href="#" class="btn active btn-block" id="btn__tai__xe" role="button">Tài xế</a>
+            <div class="row mt-3 mb-3">
+                <div class="col-3" *ngFor="let ghe of danhSachGhe">
+                    <div class="ghe" *ngIf="!ghe.TrangThai;else divGhe">
+                        <button (click)="chonGhe(ghe)" class="btn btn-secondary m-1" style="width: 50px; height: 50px;" >{{ghe.SoGhe}}</button>
+                    </div>
+                    <ng-template #divGhe>
+                        <button (click)="huyghe(ghe)" class="btn btn-success m-1" style="width: 50px; height: 50px;" >{{ghe.SoGhe}}</button>
+                    </ng-template>
+                    <!-- <app-chon-ghe></app-chon-ghe> -->
+                </div>
+            </div>
+        </div>
+        <div class="col-6" id="ghe__da__dat">
+            <h3 class="text-center">Danh sách ghế đã đặt</h3>
+            <div class="ghe__da__chon" *ngFor="let ghe of danhSachGheDaChon">
+                <h5 class="pl-5">Ghế:{{ghe.TenGhe}}-${{ghe.Gia}} [<a class="text-danger" style="cursor: pointer;" (click)="huyghe(ghe)">Hủy</a>] </h5>
+                
+            </div>
+            <h3>tổng tiền:{{tongTien}}</h3>
+        </div>
+    </div>
+</div>
